@@ -597,7 +597,7 @@ if __name__ == '__main__':
     parser.add_argument('--multi_plot', dest='single_plot', action='store_false')
     parser.add_argument('--fig_width', dest='fig_width', default=6.0, type=float)
     parser.add_argument('--fig_height', dest='fig_height', default=6.0, type=float)
-    parser.set_defaults(save_query=True, plot_regions=False, add_title=False, metric_y_axis=True, x_axis_label=False,
+    parser.set_defaults(save_query=True, plot_regions=False, add_title=False, metric_y_axis=True, x_axis_label=True,
                         with_title=False, single_plot = False)
     args = parser.parse_args()
     db = ReadOnlyPandasDatabase(args.database_folder)

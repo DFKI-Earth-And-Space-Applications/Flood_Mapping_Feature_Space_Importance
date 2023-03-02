@@ -15,7 +15,8 @@ def criterion_file_add(args: argparse.Namespace) -> str:
            f'{"" if args.prediction_criterion is None else f"_{args.prediction_criterion}"}'
 
 def plot_metric_histogram(ax:plt.Axes, values: pd.DataFrame, metric_name: str, clazz: Optional[int],
-                          remaining_columns: Union[str, Iterable[str]] = STANDARD_RETAIN_COLUMNS):
+                          remaining_columns: Union[str, Iterable[str]] = STANDARD_RETAIN_COLUMNS,
+                          add_title: bool = False):
     means = perform_averaging(values, [c for c in values.columns if c != COLUMN_METRIC_VALUE], drop_class=False).rename(columns={COLUMN_METRIC_VALUE+'_mean':COLUMN_METRIC_VALUE})
     print(f'Describing {metric_name} for class {clazz}:')
     print(means.describe())
@@ -239,7 +240,7 @@ def plot_param_analysis(db: PandasDatabase, folder: str, orig_metric_modules: pd
                               fig_height=args.fig_height,
                               show_x_axis_label=args.x_axis_label,
                               max_unique_classes=args.max_n_classes,
-                              with_title=args.with_figure_title)
+                              with_title=args.with_title)
             else:
                 print(f'Found no evaluations for metric {metric} ({METRIC_NAME_MAP[metric]})! Skipping!',
                       file=sys.stderr)
@@ -261,7 +262,6 @@ def plot_param_analysis(db: PandasDatabase, folder: str, orig_metric_modules: pd
                           seed_params,
                           metric, args.value_map,
                           args.show, args.save,
-                          do_average_seeds=False,
                           add_title=args.add_title,
                           add_mean_line=args.mean_line,
                           metric_y_axis=args.metric_y_axis,
@@ -269,7 +269,7 @@ def plot_param_analysis(db: PandasDatabase, folder: str, orig_metric_modules: pd
                           fig_height=args.fig_height,
                           show_x_axis_label=args.x_axis_label,
                           max_unique_classes=args.max_n_classes,
-                          with_title=args.with_figure_title)
+                          with_title=args.with_title)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

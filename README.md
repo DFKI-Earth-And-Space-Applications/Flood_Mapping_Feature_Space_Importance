@@ -9,3 +9,7 @@ Furthermore, an analysis of the regional distribution of the Sen1Floods11 datase
 ## Results
 
 You can find a pre-print of our work, which has been submitted to Remote Sensing of Enviornment, on [arXiv](https://arxiv.org/abs/2303.00691).
+
+# Running the code 
+
+Please refer to the [associated README](src/README.md).

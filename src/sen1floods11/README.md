@@ -6,7 +6,8 @@ which has been collected across all major biomes. It features 4,384 weakly label
 
 ## Structure of this Repo
 
-In this folder a simple API for accessing the Sen1Floods11 dataset is provided in `dataset.py`.
+In this folder a simple API for accessing the Sen1Floods11 dataset is provided in `dataset.py`. and `convert_datadings_seperately.py` is a script used to convert the data
+into the much more efficient datadings format.
 
 ## Downloading the dataset
 
@@ -98,7 +99,13 @@ As the Sen1Floods11 dataset does not provide the splits for the Sentinel-2 hand 
 on the Sentinel-1 splits by calling the `create_s2_split_files` function or invoking `dataset.py` with a path to the
 folder containing the split files as an argument.
 
-## For convenience: Here the data info from their repo
+## Converting to Datadings
+
+In order to use this data for the experiments in the neighbouring folders, you will have to create datadings-msgpack files first (or otherwise consistenly add no-datadings arguments
+to all data-using calls, but this is not recommended). For this run `convert_datadings_seperately.py` with the folder you downloaded your Sen1Floods11 files to and another folder 
+depicting where the datadings files should be stored. The latter will then be your `data_folder` when running experiments.
+
+# For convenience: Here the data info from their repo
 
 Except for the bit and resolution information (that was fetched from the
 [Sentinel-2 User Guide](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/resolutions/radiometric))

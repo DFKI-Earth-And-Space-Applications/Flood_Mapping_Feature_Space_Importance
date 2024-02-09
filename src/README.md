@@ -38,7 +38,7 @@ when using SAR data.
 
 You may also want to adjust `--seed` and `--n_jobs` to specify the seed to use and/or the number of parallel processes 
 that a parallelizable training algorithm may employ. Note that there is some additionall paralellism due to the use of numba which you can only disable by setting the
-`ENABLE_NUMBA_PARALLEL=0` enviornment variable and furthermore it is recommended to also set the `PYTHON_HASH_SEEED`. Seeds used: 
+`ENABLE_NUMBA_PARALLEL=0` enviornment variable and furthermore it is recommended to also set the `PYTHON_HASH_SEED` to the same value. Seeds used: 
 
 42 1234 4998 125143 252134 296459 338544 365132 444068 637291 691561 702734 797387 908314 947120 984340
 
